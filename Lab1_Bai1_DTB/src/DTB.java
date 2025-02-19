@@ -2,18 +2,31 @@ import java.util.Scanner;
 
 public class DTB {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nhập họ và tên sinh viên: ");
-		String ho_va_ten = scanner.nextLine();
-		System.out.print("Nhập điểm trung bình: ");
-		Double diem_trung_binh = scanner.nextDouble();
-		System.out.println("---------------------");
-		System.out.println("Thông tin sinh viên:");
-		System.out.println("Họ và tên: " + ho_va_ten);
-		System.out.println("Điểm trung bình " + diem_trung_binh);
-		scanner.close();
-	}
-
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhap ho va ten sinh vien: ");
+        String HoVaTen = scanner.nextLine();
+        double DiemTrungBinh;
+        
+        while (true) {
+            try {
+                System.out.print("Nhap diem trung binh: ");
+                DiemTrungBinh = scanner.nextDouble();
+                
+                if (DiemTrungBinh < 0 || DiemTrungBinh > 10) {
+                    System.out.println("Loi! Diem trung binh phai nam trong khoang 0 - 10.");
+                    continue;
+                }
+                break;
+            } catch (Exception ex) {
+                System.out.println("Loi! Vui long nhap so hop le.");
+            }
+        }
+        
+        System.out.println("-----------------");
+        System.out.println("Thong tin sinh vien:");
+        System.out.println("Ho va ten: " + HoVaTen);
+        System.out.println("Diem trung binh: " + DiemTrungBinh);
+        scanner.close();
+    }
 }
